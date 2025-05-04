@@ -1,48 +1,46 @@
 ### GET /
 GET http://localhost:5003
 
-### Register a user /auth/register
+### Register a user POST /AUTH/REGISTER
 POST http://localhost:5003/auth/register
 Content-Type: application/json
 
 {
-  "username":"tejus@gmail.com",
-  "password":"123123123"
+    "username": "gilgamesh@gmail.com",
+    "password": "123123123"
 }
 
-### Login a user /auth/login 
+### Login a user POST /AUTH/LOGIN
 POST http://localhost:5003/auth/login
 Content-Type: application/json
 
 {
-  "username":"tejus@gmail.com",
-  "password":"123123123"
+    "username": "gilgamesh@gmail.com",
+    "password": "123123123"
 }
 
-### fetch all todos /todos
+### Fetch all todos GET /TODOS (protected)
 GET http://localhost:5003/todos
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ2MzMwMDE2LCJleHAiOjE3NDY0MTY0MTZ9.qgRBFq3HNklJHw65nNzEIvjzYaICNK9xWrkBHiaaYuE
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzMxOTA2NDE3LCJleHAiOjE3MzE5OTI4MTd9.0vg4uoLjN2K-G5rR7Nogbq1wcEUMsNJ-CtClsYdLFaM
 
-
-### Creates a new todo /todos
+### Creates a new todo POST /TODOS (protected)
 POST http://localhost:5003/todos
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ2MzMwMDE2LCJleHAiOjE3NDY0MTY0MTZ9.qgRBFq3HNklJHw65nNzEIvjzYaICNK9xWrkBHiaaYuE
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzMxOTA2NDE3LCJleHAiOjE3MzE5OTI4MTd9.0vg4uoLjN2K-G5rR7Nogbq1wcEUMsNJ-CtClsYdLFaM
+Content-Type: application/json 
+
+{
+    "task": "Finish coding the projects"
+}
+
+### Update a todo PUT /TODOS/:ID (protected)
+PUT http://localhost:5003/todos/2?page=4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzMxOTA2NDE3LCJleHAiOjE3MzE5OTI4MTd9.0vg4uoLjN2K-G5rR7Nogbq1wcEUMsNJ-CtClsYdLFaM
 Content-Type: application/json
 
 {
-"task":"Finish coding the final project"
+    "completed": 1
 }
 
-### Update a todo /todos/:id
-PUT http://localhost:5003/todos/2
-Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ2MzMwMDE2LCJleHAiOjE3NDY0MTY0MTZ9.qgRBFq3HNklJHw65nNzEIvjzYaICNK9xWrkBHiaaYuE
-
-{
-  "completed":1
-}
-
-### Delete a todo /todos/:id
-DELETE http://localhost:5003/todos/3
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ2MzMwMDE2LCJleHAiOjE3NDY0MTY0MTZ9.qgRBFq3HNklJHw65nNzEIvjzYaICNK9xWrkBHiaaYuE
-
+### Delete a todo DELETE /TODOS/:ID (protected)
+DELETE http://localhost:5003/todos/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzMxOTA2NDE3LCJleHAiOjE3MzE5OTI4MTd9.0vg4uoLjN2K-G5rR7Nogbq1wcEUMsNJ-CtClsYdLFaM
